@@ -1,0 +1,22 @@
+{
+  "name": "craftpilot",
+  "version": "0.3.0",
+  "description": "Work in the ArtCraft creative apps (PhotoCraft, VectorCraft, DesignCraft, EffectCraft, FilmCraft, LightCraft, PdfCraft) from Claude Code: live in their windows or headless, through each app's built-in MCP server.",
+  "author": {
+    "name": "Rudi van Wyk"
+  },
+  "license": "MIT",
+  "keywords": [
+    "photocraft",
+    "vectorcraft",
+    "designcraft",
+    "effectcraft",
+    "filmcraft",
+    "lightcraft",
+    "pdfcraft",
+    "mcp",
+    "creative-tools"
+  ],
+  "homepage": "https://github.com/Rudivw-sponge/craftpilot",
+  "repository": "https://github.com/Rudivw-sponge/craftpilot"
+}

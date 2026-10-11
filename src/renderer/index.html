@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'"
+    />
+    <title>CraftPilot</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="bar">
+      <button id="project" class="project" title="Change project folder">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 3.5h4l1.5 1.5h7.5v8h-13z" /></svg>
+        <span id="project-name">No project</span>
+      </button>
+      <span class="spacer"></span>
+      <button id="claude-code" class="icon" title="Open in Claude Code: work with your Claude plan in a terminal">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3h12v10H2zM4.5 6.5 6.5 8l-2 1.5M8 10h3" /></svg>
+      </button>
+      <button id="key-btn" class="icon" title="Anthropic API key">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M7.2 8.8a3 3 0 1 1-1.4-1.4L12 1.2l1.6 1.6-1.2 1.2 1.2 1.2-1.4 1.4-1.2-1.2-1.6 1.6" /></svg>
+      </button>
+      <button id="new-chat" class="icon" title="New chat">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10" /></svg>
+      </button>
+      <button id="pin" class="icon" title="Keep on top">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 2h4l-.5 4 2.5 2.5H4L6.5 6zM8 8.5V14" /></svg>
+      </button>
+    </header>
+
+    <nav id="apps" class="apps" aria-label="ArtCraft apps"></nav>
+
+    <main id="log" class="log" aria-live="polite">
+      <section id="welcome" class="welcome">
+        <h1>CraftPilot</h1>
+        <p id="welcome-text"></p>
+        <button id="choose" class="primary" hidden>Choose project folder</button>
+        <div id="examples" class="examples">
+          <button>Give this photo a warm, filmic grade on a new adjustment layer</button>
+          <button>Draw a simple flat logo for “Harbor Coffee” in VectorCraft and export it as SVG</button>
+          <button>Make an A4 poster in DesignCraft using the logo and a headline</button>
+          <button>Animate the logo fading and scaling in over 2 seconds in EffectCraft</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="composer">
+      <section id="auth" class="auth" hidden aria-label="Sign in">
+        <h2>Connect to Claude</h2>
+        <div class="auth-option">
+          <h3>Anthropic API key</h3>
+          <p>Chat here in the panel. Usage is billed to your Anthropic API account.</p>
+          <form id="key-form" class="key-row">
+            <input id="key-input" type="password" placeholder="sk-ant-…" autocomplete="off" spellcheck="false" aria-label="Anthropic API key" />
+            <button class="primary small" type="submit">Save</button>
+          </form>
+          <div class="auth-links">
+            <a href="#" data-link="https://console.anthropic.com/settings/keys">Get an API key</a>
+            <a href="#" id="key-remove" hidden>Remove saved key</a>
+          </div>
+          <div id="key-error" class="note error" hidden></div>
+        </div>
+        <div class="auth-option">
+          <h3>Claude plan (Pro, Max, Team)</h3>
+          <p>Opens Claude Code in your project folder with the CraftPilot tools loaded. You sign in to Claude Code with your Claude account.</p>
+          <button id="auth-claude-code" class="small">Open in Claude Code</button>
+        </div>
+      </section>
+      <section id="usage-panel" class="usage-panel" hidden aria-label="Usage"></section>
+      <div id="context" class="context" hidden title="Sent to Claude with each message"></div>
+      <div class="input-row">
+        <textarea id="input" rows="1" placeholder="Ask Claude…" spellcheck="true"></textarea>
+        <button id="send" class="send" title="Send (Enter)">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5" /></svg>
+        </button>
+      </div>
+      <div class="composer-bar">
+        <select id="model" class="picker" title="Model" aria-label="Model"><option>Loading models…</option></select>
+        <select id="effort" class="picker" title="Effort: how hard Claude thinks" aria-label="Effort"></select>
+        <span class="spacer"></span>
+        <button id="usage-btn" class="usage-chip" title="Usage" aria-expanded="false" aria-controls="usage-panel">
+          <span id="usage-chip-text">Usage</span>
+        </button>
+      </div>
+    </footer>
+
+    <script src="markdown.js"></script>
+    <script src="renderer.js"></script>
+  </body>
+</html>

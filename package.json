@@ -1,0 +1,86 @@
+{
+  "name": "craftpilot",
+  "version": "0.3.0",
+  "description": "A chat panel and Claude Code plugin for working in the ArtCraft creative apps with Claude.",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis portable"
+  },
+  "keywords": [
+    "photocraft",
+    "vectorcraft",
+    "designcraft",
+    "effectcraft",
+    "filmcraft",
+    "lightcraft",
+    "pdfcraft",
+    "claude",
+    "mcp",
+    "electron"
+  ],
+  "author": "Rudi van Wyk",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "^0.3.296"
+  },
+  "devDependencies": {
+    "electron": "^44.7.0",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "app.craftpilot.desktop",
+    "productName": "CraftPilot",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "src/**",
+      "plugin/**",
+      "assets/**",
+      "package.json",
+      "!node_modules/@anthropic-ai/claude-agent-sdk-*/**"
+    ],
+    "asarUnpack": [
+      "plugin/**"
+    ],
+    "extraMetadata": {
+      "main": "src/main.js"
+    },
+    "win": {
+      "icon": "build/icon.png",
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "artifactName": "${productName}-Setup-${version}.${ext}"
+    },
+    "portable": {
+      "artifactName": "${productName}-${version}-portable.${ext}"
+    },
+    "extraResources": [
+      {
+        "from": "LICENSE",
+        "to": "LICENSE.txt"
+      },
+      {
+        "from": "THIRD_PARTY_NOTICES.md",
+        "to": "THIRD_PARTY_NOTICES.md"
+      }
+    ]
+  },
+  "homepage": "https://github.com/Rudivw-sponge/craftpilot",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rudivw-sponge/craftpilot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Rudivw-sponge/craftpilot/issues"
+  }
+}

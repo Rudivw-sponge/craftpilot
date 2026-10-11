@@ -1,0 +1,12 @@
+{
+  "name": "craftpilot",
+  "owner": { "name": "Rudi van Wyk" },
+  "metadata": { "description": "CraftPilot: Claude Code integration for the ArtCraft creative apps." },
+  "plugins": [
+    {
+      "name": "craftpilot",
+      "source": "./plugin",
+      "description": "Work in PhotoCraft, VectorCraft, DesignCraft, EffectCraft, FilmCraft, LightCraft and PdfCraft from Claude Code."
+    }
+  ]
+}

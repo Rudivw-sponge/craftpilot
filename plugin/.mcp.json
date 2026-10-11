@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "photocraft": { "command": "node", "args": ["${CLAUDE_PLUGIN_ROOT}/bin/craft-mcp.js", "photocraft"] },
+    "vectorcraft": { "command": "node", "args": ["${CLAUDE_PLUGIN_ROOT}/bin/craft-mcp.js", "vectorcraft"] },
+    "designcraft": { "command": "node", "args": ["${CLAUDE_PLUGIN_ROOT}/bin/craft-mcp.js", "designcraft"] },
+    "effectcraft": { "command": "node", "args": ["${CLAUDE_PLUGIN_ROOT}/bin/craft-mcp.js", "effectcraft"] },
+    "filmcraft": { "command": "node", "args": ["${CLAUDE_PLUGIN_ROOT}/bin/craft-mcp.js", "filmcraft"] },
+    "lightcraft": { "command": "node", "args": ["${CLAUDE_PLUGIN_ROOT}/bin/craft-mcp.js", "lightcraft"] },
+    "pdfcraft": { "command": "node", "args": ["${CLAUDE_PLUGIN_ROOT}/bin/craft-mcp.js", "pdfcraft"] }
+  }
+}
