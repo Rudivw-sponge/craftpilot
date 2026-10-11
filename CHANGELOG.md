@@ -1,8 +1,8 @@
 # Changelog
 
-## 0.3.0
+## 0.3.0 (beta)
 
-First public release.
+First public release, as a beta.
 
 - **Panel:** a chat window that docks beside the ArtCraft apps. Claude works in seven apps:
   PhotoCraft, VectorCraft, DesignCraft, EffectCraft, FilmCraft, LightCraft and PdfCraft.

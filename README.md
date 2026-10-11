@@ -8,6 +8,11 @@ work between apps, for example from a vector logo to a poster layout to a finish
 CraftPilot also comes as a plugin for [Claude Code](https://claude.com/product/claude-code), for
 people who prefer to work in a terminal or who use a Claude plan.
 
+> **Beta.** CraftPilot works, but it's new and has been tested on one Windows 11 PC with all
+> seven apps installed. The ArtCraft apps are early alpha too, so an app update can change their
+> tools and break parts of CraftPilot. Please [report problems](../../issues) with what you asked,
+> which apps were open, and any error shown.
+
 <p align="center">
   <img src="docs/images/panel.png" width="340" alt="The CraftPilot panel, with PhotoCraft, VectorCraft and PdfCraft live">
   &nbsp;&nbsp;

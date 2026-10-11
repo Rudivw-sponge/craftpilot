@@ -35,3 +35,5 @@ jobs:
           files: |
             dist/*.exe
           generate_release_notes: true
+          # Versions before 1.0 are betas: mark their releases as pre-releases.
+          prerelease: ${{ startsWith(github.ref_name, 'v0.') }}
