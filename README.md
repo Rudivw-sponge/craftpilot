@@ -56,12 +56,21 @@ people who prefer to work in a terminal or who use a Claude plan.
 
 Download the latest build from the [Releases page](../../releases/latest):
 
-- **`CraftPilot-Setup-<version>.exe`**: installs CraftPilot for your Windows account. It needs
-  no admin rights and adds a Start-menu entry and an uninstaller.
-- **`CraftPilot-<version>-portable.exe`**: a single file you run without installing.
+- **`CraftPilot-Setup-<version>.exe`** (recommended): installs CraftPilot for your Windows
+  account in `%LOCALAPPDATA%\Programs\craftpilot`. It needs no admin rights and adds a
+  Start-menu entry and an uninstaller.
+- **`CraftPilot-<version>-portable.exe`**: a single file you run without installing. It starts
+  more slowly, because it unpacks itself each time.
+
+Both keep your settings in `%APPDATA%\CraftPilot`, so they share them. To update, run the new
+installer or swap in the new portable file.
 
 The builds aren't code-signed yet, so Windows SmartScreen may warn the first time you run one.
 Choose **More info → Run anyway**.
+
+**Uninstalling:** remove CraftPilot under Windows **Settings → Apps**, or delete the portable
+file. Your settings and encrypted API key stay in `%APPDATA%\CraftPilot`; delete that folder to
+remove them too.
 
 ## Getting started
 
@@ -121,6 +130,18 @@ Then, in your project folder:
   app.
 - **`CRAFTPILOT_MODE=headless`** keeps every app in background mode.
 
+## Troubleshooting
+
+| Problem | What to do |
+|---|---|
+| An app chip is **amber** | The app is open without CraftPilot, or for another project folder. Save your work, close the app, then click its chip. |
+| An app is **missing** from the chips | CraftPilot looks in `C:\Program Files\<App>` and `%LOCALAPPDATA%\Programs\<App>`. If it's elsewhere, set `<APP>_HOME` (e.g. `VECTORCRAFT_HOME`) to the folder containing `<app>-cli.exe`. |
+| "Claude Code isn't installed" | Install [Claude Code](https://claude.com/product/claude-code) and restart CraftPilot. If it's in an unusual place, set `CLAUDE_CODE_PATH` to `claude.exe`. |
+| "Invalid API key" | Use the key button to paste a current key from the [Anthropic Console](https://console.anthropic.com/settings/keys). |
+| **Open in Claude Code** says Node.js is needed | Install [Node.js](https://nodejs.org) 18 or newer, then try again. |
+| In Claude Code, an app stays headless after `/craftpilot:open` | Run `/mcp` and reconnect that app's server. |
+| Windows SmartScreen blocks the download | The builds aren't code-signed. Choose **More info → Run anyway**. |
+
 ## Privacy and safety
 
 - **Your API key** is encrypted with Windows' own data protection (DPAPI) and stored in
@@ -154,7 +175,8 @@ npm start
 
 - **`npm start`:** runs the app from source.
 - **`npm run dist`:** builds the installer and the portable exe into `dist/`.
-- **Releases:** a GitHub Actions workflow builds and attaches them whenever a `v*` tag is pushed.
+- **Releases:** a GitHub Actions workflow builds and attaches them whenever a `v*` tag is
+  pushed. See [docs/releasing.md](docs/releasing.md) for the steps.
 - **`node scripts/third-party-notices.js`:** regenerates `THIRD_PARTY_NOTICES.md` after
   dependency changes.
 

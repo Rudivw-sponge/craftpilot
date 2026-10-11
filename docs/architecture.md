@@ -144,8 +144,10 @@ is how a running app is known to be locked to the current folder.
 - **Unpacked plugin:** `plugin/**` is unpacked from `app.asar`, because the app starts its
   scripts as separate processes and passes the plugin folder to Claude Code. Paths into
   `app.asar` are rewritten to `app.asar.unpacked`.
-- **Releases:** `.github/workflows/release.yml` builds on `windows-latest` and attaches the
-  executables to a GitHub Release when a `v*` tag is pushed.
+- **Releases:** `.github/workflows/release.yml` checks the versions, builds on `windows-latest`
+  and attaches the executables to a GitHub Release when a `v*` tag is pushed. The `dist` script
+  passes `--publish never`, because publishing is the workflow's job. See
+  [releasing.md](releasing.md).
 
 ## Configuration
 

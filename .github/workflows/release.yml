@@ -23,6 +23,9 @@ jobs:
 
       - run: npm ci
 
+      # The tag, package.json and the plugin manifest must carry the same version.
+      - run: node scripts/check-version.js
+
       - run: npm run dist
 
       - name: Attach builds to the release
